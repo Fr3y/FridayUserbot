@@ -6,6 +6,7 @@ iplookup
 git+https://github.com/Starkgangs/pydl.git
 pytesseract
 spotdl
+pyrogram
 aiofiles
 pyshorteners
 aiohttp
