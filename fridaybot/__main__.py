@@ -1,27 +1,26 @@
+import logging
 from pathlib import Path
 from sys import argv
 
 import telethon.utils
+from pyrogram import Client
 from telethon import TelegramClient
 
 from fridaybot import bot
 from fridaybot.Configs import Config
 from fridaybot.utils import load_module, start_assistant
 from var import Var
-import asyncio
-from logging import DEBUG, WARNING, basicConfig, getLogger
-from logging.handlers import RotatingFileHandler
-import logging
-from pyrogram import Client
 
 if Config.PYROGRAM_STRING is not None:
     logging.basicConfig(
-    level=logging.WARNING, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        level=logging.WARNING,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
     logging.getLogger("pyrogram").setLevel(logging.WARNING)
     fridayclient = Client(Config.PYROGRAM_STRING, api_id=api_id, api_hash=api_hash)
     fridayclient.run()
-    
+
+
 async def add_bot(bot_token):
     await bot.start(bot_token)
     bot.me = await bot.get_me()
